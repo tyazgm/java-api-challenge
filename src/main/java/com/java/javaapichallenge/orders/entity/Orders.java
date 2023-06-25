@@ -24,6 +24,7 @@ public class Orders {
 
     @Column(name = "total_amount")
     Double totalAmount;
+
     String status;
 
     @Column(name = "created_at")
