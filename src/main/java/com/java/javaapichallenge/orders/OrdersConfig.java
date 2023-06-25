@@ -1,11 +1,10 @@
-package com.java.javaapichallenge.Order;
+package com.java.javaapichallenge.orders;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
 @Configuration

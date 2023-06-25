@@ -1,4 +1,4 @@
-package com.java.javaapichallenge.Order;
+package com.java.javaapichallenge.orders;
 
 import jakarta.persistence.*;
 
@@ -10,13 +10,13 @@ public class Orders {
 
     @Id
     @SequenceGenerator(
-            name = "order_sequence",
-            sequenceName = "order_sequnce",
+            name = "orders_sequence",
+            sequenceName = "orders_sequnce",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "order_sequence"
+            generator = "orders_sequence"
     )
 
     Integer id;
