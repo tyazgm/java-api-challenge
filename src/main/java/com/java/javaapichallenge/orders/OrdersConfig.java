@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
@@ -18,16 +19,16 @@ public class OrdersConfig {
                     "John Doe",
                     50.99,
                     "completed",
-                    LocalDate.now(),
-                    LocalDate.now()
+                    LocalDateTime.now(),
+                    LocalDateTime.now()
             );
 
             Orders jane = new Orders(
                     "Jane Smith",
                     25.5,
                     "pending",
-                    LocalDate.now(),
-                    LocalDate.now()
+                    LocalDateTime.now(),
+                    LocalDateTime.now()
             );
 
             ordersRepository.saveAll(

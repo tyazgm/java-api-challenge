@@ -3,6 +3,7 @@ package com.java.javaapichallenge.orders;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table
@@ -28,16 +29,21 @@ public class Orders {
     String status;
 
     @Column(name = "created_at")
-    LocalDate createdAt;
+    LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    LocalDate updatedAt;
+    LocalDateTime updatedAt;
 
     public Orders(){
 
     }
 
-    public Orders(Integer id, String customerName, Double totalAmount, String status, LocalDate createdAt, LocalDate updatedAt) {
+    public Orders(Integer id,
+                  String customerName,
+                  Double totalAmount,
+                  String status,
+                  LocalDateTime createdAt,
+                  LocalDateTime updatedAt) {
         this.id = id;
         this.customerName = customerName;
         this.totalAmount = totalAmount;
@@ -46,7 +52,11 @@ public class Orders {
         this.updatedAt = updatedAt;
     }
 
-    public Orders(String customerName, Double totalAmount, String status, LocalDate createdAt, LocalDate updatedAt) {
+    public Orders(String customerName,
+                  Double totalAmount,
+                  String status,
+                  LocalDateTime createdAt,
+                  LocalDateTime updatedAt) {
         this.customerName = customerName;
         this.totalAmount = totalAmount;
         this.status = status;
@@ -86,19 +96,19 @@ public class Orders {
         this.status = status;
     }
 
-    public LocalDate getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }

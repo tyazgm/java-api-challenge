@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,8 +42,8 @@ public class OrdersService {
         response.setCustomerName(request.getCustomerName());
         response.setTotalAmount(request.getTotalAmount());
         response.setStatus("pending");
-        response.setCreatedAt(LocalDate.now());
-        response.setUpdatedAt(LocalDate.now());
+        response.setCreatedAt(LocalDateTime.now());
+        response.setUpdatedAt(LocalDateTime.now());
 
         ordersRepository.save(response);
 
@@ -57,7 +58,7 @@ public class OrdersService {
         response.setCustomerName(request.getCustomerName());
         response.setTotalAmount(request.getTotalAmount());
         response.setStatus(request.getStatus());
-        response.setUpdatedAt(LocalDate.now());
+        response.setUpdatedAt(LocalDateTime.now());
 
         ordersRepository.save(response);
 
