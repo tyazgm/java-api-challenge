@@ -24,8 +24,8 @@ public class OrdersController {
         return ordersService.getOrders();
     }
 
-    @GetMapping(path = "{orderId}")
-    public OrdersResponse getOrderById(@PathVariable("orderId") Integer orderId){
+    @GetMapping(path = "{Id}")
+    public OrdersResponse getOrderById(@PathVariable("Id") Integer orderId){
         return ordersService.getOrderById(orderId);
     }
 
@@ -38,6 +38,11 @@ public class OrdersController {
     public OrdersResponse updateOrder(@RequestBody UpdateOrderRequest request,
                                       @PathVariable("Id") Integer orderId){
         return ordersService.updateOrder(request, orderId);
+    }
+
+    @DeleteMapping(path = "{Id}")
+    public void deleteOrder(@PathVariable("Id")Integer orderId){
+        ordersService.deleteOrder(orderId);
     }
 
 }

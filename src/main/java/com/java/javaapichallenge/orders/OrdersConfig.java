@@ -22,8 +22,16 @@ public class OrdersConfig {
                     LocalDate.now()
             );
 
+            Orders jane = new Orders(
+                    "Jane Smith",
+                    25.5,
+                    "pending",
+                    LocalDate.now(),
+                    LocalDate.now()
+            );
+
             ordersRepository.saveAll(
-                    List.of(john)
+                    List.of(john, jane)
             );
         };
     }

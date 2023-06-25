@@ -64,6 +64,13 @@ public class OrdersService {
         return toOrdersResponse(response);
     }
 
+    public void deleteOrder(Integer orderId){
+       ordersRepository.findById(orderId).
+               orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+       ordersRepository.deleteById(orderId);
+    }
+
     public OrdersResponse toOrdersResponse (Orders response){
         return OrdersResponse.builder()
                 .id(response.getId())
