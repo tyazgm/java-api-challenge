@@ -1,7 +1,10 @@
 package com.java.javaapichallenge.orders;
 
+import com.java.javaapichallenge.orders.model.OrdersResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,17 +20,30 @@ public class OrdersService {
     }
 
     public List<Orders> getOrders(){
-        return  ordersRepository.findAll();
+        return ordersRepository.findAll();
     }
 
-    public Optional<Orders> getOrderById(Integer orderId) {
-        boolean isExist = ordersRepository.existsById(orderId);
+    public Optional<OrdersResponse> getOrderById(Integer orderId) {
+//        boolean isExist = ordersRepository.existsById(orderId);
+//
+//        if (!isExist){
+//            throw new IllegalStateException(
+//                    "order with id " + orderId + " does not exists"
+//            );
+//        }
 
-        if (!isExist){
-            throw new IllegalStateException(
-                    "order with id " + orderId + " does not exists"
-            );
-        }
-        return ordersRepository.findById(orderId);
+        Orders request = ordersRepository.findById(orderId).
+                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        OrdersResponse response = new OrdersResponse(
+                request.getId(),
+                request.getCustomerName(),
+                request.getTotalAmount(),
+                request.getStatus(),
+                request.getCreatedAt(),
+                request.getUpdatedAt()
+        );
+
+        return Optional.of(response);
     }
 }

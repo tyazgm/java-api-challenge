@@ -18,33 +18,40 @@ public class Orders {
             strategy = GenerationType.SEQUENCE,
             generator = "orders_sequence"
     )
-
     Integer id;
-    String customer_name;
-    Double total_amount;
+
+    @Column(name = "customer_name")
+    String customerName;
+
+    @Column(name = "total_amount")
+    Double totalAmount;
     String status;
-    LocalDate created_at;
-    LocalDate updated_at;
+
+    @Column(name = "created_at")
+    LocalDate createdAt;
+
+    @Column(name = "updated_at")
+    LocalDate updatedAt;
 
     public Orders(){
 
     }
 
-    public Orders(Integer id, String customer_name, Double total_amount, String status, LocalDate created_at, LocalDate updated_at) {
+    public Orders(Integer id, String customerName, Double totalAmount, String status, LocalDate createdAt, LocalDate updatedAt) {
         this.id = id;
-        this.customer_name = customer_name;
-        this.total_amount = total_amount;
+        this.customerName = customerName;
+        this.totalAmount = totalAmount;
         this.status = status;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public Orders(String customer_name, Double total_amount, String status, LocalDate created_at, LocalDate updated_at) {
-        this.customer_name = customer_name;
-        this.total_amount = total_amount;
+    public Orders(String customerName, Double totalAmount, String status, LocalDate createdAt, LocalDate updatedAt) {
+        this.customerName = customerName;
+        this.totalAmount = totalAmount;
         this.status = status;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public Integer getId() {
@@ -55,20 +62,20 @@ public class Orders {
         this.id = id;
     }
 
-    public String getCustomer_name() {
-        return customer_name;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
-    public Double getTotal_amount() {
-        return total_amount;
+    public Double getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setTotal_amount(Double total_amount) {
-        this.total_amount = total_amount;
+    public void setTotalAmount(Double totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     public String getStatus() {
@@ -79,19 +86,19 @@ public class Orders {
         this.status = status;
     }
 
-    public LocalDate getCreated_at() {
-        return created_at;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(LocalDate created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdated_at() {
-        return updated_at;
+    public LocalDate getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdated_at(LocalDate updated_at) {
-        this.updated_at = updated_at;
+    public void setUpdatedAt(LocalDate updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

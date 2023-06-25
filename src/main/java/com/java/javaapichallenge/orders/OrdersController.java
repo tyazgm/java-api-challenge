@@ -1,5 +1,6 @@
 package com.java.javaapichallenge.orders;
 
+import com.java.javaapichallenge.orders.model.OrdersResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,9 @@ public class OrdersController {
     }
 
     @GetMapping(path = "{orderId}")
-    public Optional<Orders> getOrderById(@PathVariable("orderId") Integer orderId){
+    public Optional<OrdersResponse> getOrderById(@PathVariable("orderId") Integer orderId){
         return ordersService.getOrderById(orderId);
     }
+
+
 }
