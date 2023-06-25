@@ -40,16 +40,8 @@ public class OrdersService {
             ordersResponse.setCreatedAt(ordersList.get(i).getCreatedAt());
             ordersResponse.setUpdatedAt(ordersList.get(i).getUpdatedAt());
 
-            System.out.println("masuk pak eko");
-
-            System.out.println(ordersList.get(i).getId());
-
-            System.out.println(ordersResponse);
-
             ordersResponseList.add(ordersResponse);
         }
-
-        System.out.println(ordersResponseList);
 
         return ordersResponseList;
     }

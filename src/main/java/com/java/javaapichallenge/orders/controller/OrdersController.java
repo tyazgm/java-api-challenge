@@ -1,7 +1,6 @@
 package com.java.javaapichallenge.orders.controller;
 
 import com.java.javaapichallenge.orders.service.OrdersService;
-import com.java.javaapichallenge.orders.entity.Orders;
 import com.java.javaapichallenge.orders.model.CreateOrderRequest;
 import com.java.javaapichallenge.orders.model.OrdersResponse;
 import com.java.javaapichallenge.orders.model.UpdateOrderRequest;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 
 @RestController
