@@ -3,6 +3,7 @@ package com.java.javaapichallenge.orders;
 import com.java.javaapichallenge.orders.model.CreateOrderRequest;
 import com.java.javaapichallenge.orders.model.OrdersResponse;
 import com.java.javaapichallenge.orders.model.UpdateOrderRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -51,7 +52,8 @@ public class OrdersService {
     }
 
     @Transactional
-    public OrdersResponse updateOrder(UpdateOrderRequest request, Integer orderId){
+    public OrdersResponse updateOrder(UpdateOrderRequest request,
+                                      Integer orderId){
         Orders response = ordersRepository.findById(orderId).
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
