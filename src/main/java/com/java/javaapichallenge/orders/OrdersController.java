@@ -2,6 +2,7 @@ package com.java.javaapichallenge.orders;
 
 import com.java.javaapichallenge.orders.model.CreateOrderRequest;
 import com.java.javaapichallenge.orders.model.OrdersResponse;
+import com.java.javaapichallenge.orders.model.UpdateOrderRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +32,12 @@ public class OrdersController {
     @PostMapping
     public OrdersResponse createNewOrder(@RequestBody CreateOrderRequest request){
         return ordersService.createNewOrder(request);
+    }
+
+    @PutMapping(path = "{Id}")
+    public OrdersResponse updateOrder(@RequestBody UpdateOrderRequest request,
+                                      @PathVariable("Id") Integer orderId){
+        return ordersService.updateOrder(request, orderId);
     }
 
 }

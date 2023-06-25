@@ -2,6 +2,7 @@ package com.java.javaapichallenge.orders;
 
 import com.java.javaapichallenge.orders.model.CreateOrderRequest;
 import com.java.javaapichallenge.orders.model.OrdersResponse;
+import com.java.javaapichallenge.orders.model.UpdateOrderRequest;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,14 +32,7 @@ public class OrdersService {
         Orders response = ordersRepository.findById(orderId).
                 orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        return OrdersResponse.builder()
-                .id(response.getId())
-                .customerName(response.customerName)
-                .totalAmount(response.getTotalAmount())
-                .status(response.getStatus())
-                .createdAt(response.getCreatedAt())
-                .updatedAt(response.getUpdatedAt())
-                .build();
+        return toOrdersResponse(response);
     }
 
     @Transactional
@@ -52,6 +46,25 @@ public class OrdersService {
 
         ordersRepository.save(response);
 
+        return toOrdersResponse(response);
+    }
+
+    @Transactional
+    public OrdersResponse updateOrder(UpdateOrderRequest request, Integer orderId){
+        Orders response = ordersRepository.findById(orderId).
+                orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
+        response.setCustomerName(request.getCustomerName());
+        response.setTotalAmount(request.getTotalAmount());
+        response.setStatus(request.getStatus());
+        response.setUpdatedAt(LocalDate.now());
+
+        ordersRepository.save(response);
+
+        return toOrdersResponse(response);
+    }
+
+    public OrdersResponse toOrdersResponse (Orders response){
         return OrdersResponse.builder()
                 .id(response.getId())
                 .customerName(response.customerName)
