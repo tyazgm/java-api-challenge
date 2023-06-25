@@ -26,7 +26,7 @@ public class OrdersController {
             path = "/orders",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Orders> getOrders(){
+    public List<OrdersResponse> getOrders(){
         return ordersService.getOrders();
     }
 

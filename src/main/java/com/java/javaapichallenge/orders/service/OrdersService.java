@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,8 +25,33 @@ public class OrdersService {
         this.ordersRepository = ordersRepository;
     }
 
-    public List<Orders> getOrders(){
-        return ordersRepository.findAll();
+    public List<OrdersResponse> getOrders(){
+        List<Orders> ordersList = ordersRepository.findAll();
+
+        List<OrdersResponse> ordersResponseList = new ArrayList<OrdersResponse>();
+
+        for (int i=0; i<ordersList.size(); i++){
+            OrdersResponse ordersResponse = new OrdersResponse();
+
+            ordersResponse.setId(ordersList.get(i).getId());
+            ordersResponse.setCustomerName(ordersList.get(i).getCustomerName());
+            ordersResponse.setTotalAmount(ordersList.get(i).getTotalAmount());
+            ordersResponse.setStatus(ordersList.get(i).getStatus());
+            ordersResponse.setCreatedAt(ordersList.get(i).getCreatedAt());
+            ordersResponse.setUpdatedAt(ordersList.get(i).getUpdatedAt());
+
+            System.out.println("masuk pak eko");
+
+            System.out.println(ordersList.get(i).getId());
+
+            System.out.println(ordersResponse);
+
+            ordersResponseList.add(ordersResponse);
+        }
+
+        System.out.println(ordersResponseList);
+
+        return ordersResponseList;
     }
 
     @Transactional
