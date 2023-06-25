@@ -12,21 +12,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrdersResponse {
-    Integer id;
+    private Integer id;
 
     @JsonProperty("customer_name")
-    String customerName;
+    private String customerName;
 
     @JsonProperty("total_amount")
-    Double totalAmount;
+    private Double totalAmount;
 
-    String status;
+    private String status;
 
     @JsonProperty("created_at")
-    LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @JsonProperty("updated_at")
-    LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
     public OrdersResponse(String customerName,
                           Double totalAmount,

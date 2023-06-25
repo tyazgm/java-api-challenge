@@ -33,12 +33,7 @@ public class OrdersService {
         for (int i=0; i<ordersList.size(); i++){
             OrdersResponse ordersResponse = new OrdersResponse();
 
-            ordersResponse.setId(ordersList.get(i).getId());
-            ordersResponse.setCustomerName(ordersList.get(i).getCustomerName());
-            ordersResponse.setTotalAmount(ordersList.get(i).getTotalAmount());
-            ordersResponse.setStatus(ordersList.get(i).getStatus());
-            ordersResponse.setCreatedAt(ordersList.get(i).getCreatedAt());
-            ordersResponse.setUpdatedAt(ordersList.get(i).getUpdatedAt());
+            ordersResponse = toOrdersResponse(ordersList.get(i));
 
             ordersResponseList.add(ordersResponse);
         }
@@ -91,7 +86,7 @@ public class OrdersService {
        ordersRepository.deleteById(orderId);
     }
 
-    public OrdersResponse toOrdersResponse (Orders response){
+    private OrdersResponse toOrdersResponse (Orders response){
         return OrdersResponse.builder()
                 .id(response.getId())
                 .customerName(response.getCustomerName())

@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateOrderRequest {
-    String customerName;
-    Double totalAmount;
+    private String customerName;
+    private Double totalAmount;
 }

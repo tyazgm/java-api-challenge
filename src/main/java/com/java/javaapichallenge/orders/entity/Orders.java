@@ -17,21 +17,21 @@ public class Orders {
             strategy = GenerationType.SEQUENCE,
             generator = "orders_sequence"
     )
-    Integer id;
+    private Integer id;
 
     @Column(name = "customer_name")
-    String customerName;
+    private String customerName;
 
     @Column(name = "total_amount")
-    Double totalAmount;
+    private Double totalAmount;
 
-    String status;
+    private String status;
 
     @Column(name = "created_at")
-    LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
-    LocalDateTime updatedAt;
+    private LocalDateTime updatedAt;
 
     public Orders(){
 
