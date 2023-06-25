@@ -1,19 +1,18 @@
-package com.java.javaapichallenge.orders;
+package com.java.javaapichallenge.orders.service;
 
+import com.java.javaapichallenge.orders.entity.Orders;
 import com.java.javaapichallenge.orders.model.CreateOrderRequest;
 import com.java.javaapichallenge.orders.model.OrdersResponse;
 import com.java.javaapichallenge.orders.model.UpdateOrderRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import com.java.javaapichallenge.orders.repository.OrdersRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrdersService {
@@ -77,7 +76,7 @@ public class OrdersService {
     public OrdersResponse toOrdersResponse (Orders response){
         return OrdersResponse.builder()
                 .id(response.getId())
-                .customerName(response.customerName)
+                .customerName(response.getCustomerName())
                 .totalAmount(response.getTotalAmount())
                 .status(response.getStatus())
                 .createdAt(response.getCreatedAt())

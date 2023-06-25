@@ -1,8 +1,6 @@
-package com.java.javaapichallenge.orders;
+package com.java.javaapichallenge.orders.entity;
 
 import jakarta.persistence.*;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
